@@ -1,4 +1,4 @@
-package com.example.liuhaifeng.leanclouddemo;
+package cn.leancloud.chatkit.event;
 
 /**
  * Created by wli on 15/8/24.

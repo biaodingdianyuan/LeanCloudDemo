@@ -1,4 +1,4 @@
-package com.example.liuhaifeng.leanclouddemo;
+package cn.leancloud.chatkit.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
@@ -16,6 +16,7 @@ import java.util.Locale;
 import java.util.Map;
 
 import cn.leancloud.chatkit.LCChatKitUser;
+import cn.leancloud.chatkit.viewholder.ContactItemHolder;
 
 /**
  * Created by wli on 15/8/14.

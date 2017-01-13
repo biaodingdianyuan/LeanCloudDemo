@@ -33,8 +33,8 @@ public class LCIMConversationListFragment extends Fragment {
   protected SwipeRefreshLayout refreshLayout;
   protected RecyclerView recyclerView;
 
-  protected LCIMCommonListAdapter<AVIMConversation> itemAdapter;
-  protected LinearLayoutManager layoutManager;
+  protected static LCIMCommonListAdapter<AVIMConversation> itemAdapter;
+  protected  static LinearLayoutManager layoutManager;
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -84,7 +84,7 @@ public class LCIMConversationListFragment extends Fragment {
    * 删除会话列表中的某个 item
    * @param event
    */
-  public void onEvent(LCIMConversationItemLongClickEvent event) {
+  public static void onEvent(LCIMConversationItemLongClickEvent event) {
     if (null != event.conversation) {
       String conversationId = event.conversation.getConversationId();
       LCIMConversationItemCache.getInstance().deleteConversation(conversationId);
@@ -95,7 +95,7 @@ public class LCIMConversationListFragment extends Fragment {
   /**
    * 刷新页面
    */
-  private void updateConversationList() {
+  private static void updateConversationList() {
     List<String> convIdList = LCIMConversationItemCache.getInstance().getSortedConversationList();
     List<AVIMConversation> conversationList = new ArrayList<>();
     for (String convId : convIdList) {

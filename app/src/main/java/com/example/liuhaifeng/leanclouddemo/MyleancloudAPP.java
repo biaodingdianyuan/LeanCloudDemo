@@ -1,6 +1,8 @@
 package com.example.liuhaifeng.leanclouddemo;
 
 import android.app.Application;
+import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 
 import com.avos.avoscloud.AVOSCloud;
@@ -18,6 +20,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.leancloud.chatkit.LCChatKit;
+import cn.leancloud.chatkit.LCChatKitUser;
+import cn.leancloud.chatkit.LCIMData;
+import cn.leancloud.chatkit.activity.AddfriendtogroupActivity;
 import cn.leancloud.chatkit.activity.LCIMConversationActivity;
 import cn.leancloud.chatkit.adapter.LCIMChatAdapter;
 
@@ -27,15 +32,21 @@ import cn.leancloud.chatkit.adapter.LCIMChatAdapter;
 
 public class MyleancloudAPP extends Application {
 
+    public  static Context context;
+    public static  String name;
+
+
     @Override
     public void onCreate() {
         super.onCreate();
         LCChatKit.getInstance().setProfileProvider(CustomUserProvider.getInstance());
-
-        LCChatKit.getInstance().init(getApplicationContext(), "kayb5IFFY6i1wVVfv2T16w0c-gzGzoHsz", "CQgEbRumu3bhK89unzdGnbim");
-
+        // TODO: 2017/1/7  添加 APPID，APPKEY
+        LCChatKit.getInstance().init(getApplicationContext(),
+                "----APPID----", "----APPKEY---");
         AVOSCloud.setDebugLogEnabled(true);
-
+        context=getApplicationContext();
+        //向依赖库中传值   测试数据
+        LCIMData.User_list=CustomUserProvider.getInstance().getAllUsers();
 
 
     }

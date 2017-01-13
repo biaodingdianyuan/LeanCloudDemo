@@ -1,4 +1,4 @@
-package com.example.liuhaifeng.leanclouddemo.activity;
+package cn.leancloud.chatkit.activity;
 
 
 import android.os.Bundle;
@@ -12,11 +12,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-import com.example.liuhaifeng.leanclouddemo.CustomUserProvider;
-import com.example.liuhaifeng.leanclouddemo.MemberLetterEvent;
-import com.example.liuhaifeng.leanclouddemo.MembersAdapter;
-import com.example.liuhaifeng.leanclouddemo.R;
-
+import cn.leancloud.chatkit.LCIMData;
+import cn.leancloud.chatkit.R;
+import cn.leancloud.chatkit.adapter.MembersAdapter;
+import cn.leancloud.chatkit.event.MemberLetterEvent;
 import cn.leancloud.chatkit.view.LCIMDividerItemDecoration;
 import de.greenrobot.event.EventBus;
 
@@ -27,7 +26,7 @@ public class ContactFragment extends Fragment {
     private MembersAdapter itemAdapter;
     LinearLayoutManager layoutManager;
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater,  ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.contact_fragment, container, false);
         swipeRefreshLayout= (SwipeRefreshLayout) view.findViewById(R.id.contact_fragment_srl_list);
         recyclerView= (RecyclerView) view.findViewById(R.id.contact_fragment_rv_list);
@@ -59,7 +58,7 @@ public class ContactFragment extends Fragment {
         
     }
     private void refreshMembers() {
-        itemAdapter.setMemberList(CustomUserProvider.getInstance().getAllUsers());
+        itemAdapter.setMemberList(LCIMData.User_list);
         itemAdapter.notifyDataSetChanged();
         swipeRefreshLayout.setRefreshing(false);
     }

@@ -1,4 +1,4 @@
-package com.example.liuhaifeng.leanclouddemo;
+package cn.leancloud.chatkit.viewholder;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,9 +11,9 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import cn.leancloud.chatkit.LCChatKitUser;
+import cn.leancloud.chatkit.R;
 import cn.leancloud.chatkit.activity.LCIMConversationActivity;
 import cn.leancloud.chatkit.utils.LCIMConstants;
-import cn.leancloud.chatkit.viewholder.LCIMCommonViewHolder;
 
 /**
  * Created by wli on 15/11/24.

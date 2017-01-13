@@ -32,17 +32,8 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    // LeanCloud 基础包
-    // 推送与实时聊天需要的包
+        exclude group: 'com.android.support', module: 'support-annotations' })
     compile('cn.leancloud.android:avoscloud-push:v3.+@aar') { transitive = true }
-    // LeanCloud 统计包
-    // LeanCloud 用户反馈包
-    // avoscloud-sns：LeanCloud 第三方登录包
-    // 目前新浪微博官方只提供 jar 包的集成方式
-    // 请手动下载新浪微博 SDK 的 jar 包，将其放在 libs 目录下进行集成
-    // LeanCloud 应用内搜索包
     compile project(':leancloudchatkit')
     compile 'com.android.support:appcompat-v7:25.0.1'
     compile 'cn.leancloud.android:avoscloud-sdk:v3.+'
@@ -57,6 +48,5 @@ dependencies {
     compile 'org.ocpsoft.prettytime:prettytime:3.2.7.Final'
     compile 'org.apache.httpcomponents:httpmime:4.2.4'
     compile 'com.jakewharton:butterknife:7.0.1'
-    compile 'com.github.stuxuhai:jpinyin:1.0'
     compile 'com.google.android.gms:play-services-appindexing:8.4.0'
 }

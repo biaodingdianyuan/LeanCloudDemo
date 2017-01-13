@@ -1,4 +1,4 @@
-package com.example.liuhaifeng.leanclouddemo;
+package cn.leancloud.chatkit.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -6,9 +6,11 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.leancloud.chatkit.event.MemberLetterEvent;
 import de.greenrobot.event.EventBus;
 
 

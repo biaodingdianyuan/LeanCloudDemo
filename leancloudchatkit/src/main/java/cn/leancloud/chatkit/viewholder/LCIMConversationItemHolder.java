@@ -34,6 +34,7 @@ import java.util.List;
 
 import cn.leancloud.chatkit.LCChatMessageInterface;
 import cn.leancloud.chatkit.R;
+import cn.leancloud.chatkit.activity.LCIMConversationListFragment;
 import cn.leancloud.chatkit.cache.LCIMConversationItemCache;
 import cn.leancloud.chatkit.event.LCIMConversationItemLongClickEvent;
 import cn.leancloud.chatkit.utils.LCIMConstants;
@@ -107,7 +108,8 @@ public class LCIMConversationItemHolder extends LCIMCommonViewHolder {
           AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
           builder.setItems(new String[]{"删除该聊天"}, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
-              EventBus.getDefault().post(new LCIMConversationItemLongClickEvent(conversation));
+              LCIMConversationListFragment.onEvent(new LCIMConversationItemLongClickEvent(conversation));
+
             }
           });
           AlertDialog dialog = builder.create();

@@ -1,6 +1,9 @@
 package cn.leancloud.chatkit.handler;
 
 
+import android.util.Log;
+import android.widget.Toast;
+
 import com.avos.avoscloud.im.v2.AVIMClient;
 import com.avos.avoscloud.im.v2.AVIMConversation;
 import com.avos.avoscloud.im.v2.AVIMConversationEventHandler;
@@ -28,7 +31,7 @@ public class LCIMConversationHandler extends AVIMConversationEventHandler {
     return eventHandler;
   }
 
-  private LCIMConversationHandler() {
+  protected LCIMConversationHandler() {
   }
 
   @Override
@@ -54,5 +57,7 @@ public class LCIMConversationHandler extends AVIMConversationEventHandler {
 
   @Override
   public void onInvited(AVIMClient client, AVIMConversation conversation, String operator) {
+
+
   }
 }

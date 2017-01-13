@@ -15,13 +15,16 @@ import android.widget.Toast;
 import com.avos.avoscloud.im.v2.AVIMClient;
 import com.avos.avoscloud.im.v2.AVIMException;
 import com.avos.avoscloud.im.v2.callback.AVIMClientCallback;
+import com.example.liuhaifeng.leanclouddemo.ConversationHandler;
+import com.example.liuhaifeng.leanclouddemo.MyleancloudAPP;
 import com.example.liuhaifeng.leanclouddemo.R;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
-
 import cn.leancloud.chatkit.LCChatKit;
+import cn.leancloud.chatkit.LCIMData;
+
 
 /**
  * A login screen that offers login via email/password.
@@ -42,16 +45,14 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         init();
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
     public void init() {
         name = (EditText) findViewById(R.id.name);
-        password = (EditText) findViewById(R.id.password);
+       // password = (EditText) findViewById(R.id.password);
         sign = (Button) findViewById(R.id.sign);
-        register = (Button) findViewById(R.id.register);
+     //   register = (Button) findViewById(R.id.register);
         //用户登录
         sign.setOnClickListener(new OnClickListener() {
             @Override
@@ -60,8 +61,13 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void done(AVIMClient avimClient, AVIMException e) {
                         if (e == null) {
+                            MyleancloudAPP.name=name.getText().toString();
                             LoginActivity.this.finish();
+                           LCIMData.name=name.getText().toString();
                             startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                            Intent intent=new Intent(LoginActivity.this,ConversationHandler.class);
+                            startService(intent);
+
                         } else {
 
                             Toast.makeText(LoginActivity.this, "登陆失败：" + e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -96,9 +102,6 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
         client.connect();
         AppIndex.AppIndexApi.start(client, getIndexApiAction());
     }
@@ -106,9 +109,6 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public void onStop() {
         super.onStop();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
         AppIndex.AppIndexApi.end(client, getIndexApiAction());
         client.disconnect();
     }
