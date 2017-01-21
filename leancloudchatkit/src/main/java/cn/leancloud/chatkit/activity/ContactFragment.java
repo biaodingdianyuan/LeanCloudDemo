@@ -41,7 +41,6 @@ public class ContactFragment extends Fragment {
                 refreshMembers();
             }
         });
-
         EventBus.getDefault().register(this);
         return view;
     }

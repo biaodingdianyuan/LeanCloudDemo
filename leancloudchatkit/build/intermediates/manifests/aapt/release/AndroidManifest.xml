@@ -18,6 +18,10 @@
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <application>
+        <activity android:name="cn.leancloud.chatkit.activity.AddfriendtogroupActivity" />
+        <activity android:name="cn.leancloud.chatkit.activity.AddInGroupActivity" />
+        <activity android:name="cn.leancloud.chatkit.activity.CreateGroup" />
+        <activity android:name="cn.leancloud.chatkit.activity.ItemActivity" />
         <activity
             android:name="cn.leancloud.chatkit.activity.LCIMConversationActivity"
             android:launchMode="singleTask" >

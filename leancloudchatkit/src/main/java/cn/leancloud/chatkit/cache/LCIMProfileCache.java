@@ -220,7 +220,9 @@ public class LCIMProfileCache {
     String userName = jsonObject.getString(USER_NAME);
     String userId = jsonObject.getString(USER_ID);
     String userAvatar = jsonObject.getString(USER_AVATAR);
-    return new LCChatKitUser(userId, userName, userAvatar);
+    String fg=jsonObject.getString("fg");
+    String owenr=jsonObject.getString("owenr");
+    return new LCChatKitUser(userId, userName, userAvatar,fg,owenr);
   }
 
   /**

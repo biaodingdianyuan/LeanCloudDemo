@@ -15,8 +15,14 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
+import com.example.liuhaifeng.leanclouddemo.CustomUserProvider;
 import com.example.liuhaifeng.leanclouddemo.R;
+import com.squareup.picasso.Picasso;
 
+import java.util.List;
+
+import cn.leancloud.chatkit.LCChatKitUser;
+import cn.leancloud.chatkit.LCIMData;
 import cn.leancloud.chatkit.activity.AddInGroupActivity;
 import cn.leancloud.chatkit.activity.ContactFragment;
 import cn.leancloud.chatkit.activity.CreateGroup;
@@ -28,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Toolbar toolbar;
     private LinearLayout talk, person,group;
     private TextView title,tv_huihua,tv_people,tv_group;
-    private ImageView add,imghuihua,imgpeople,imggroup;
+    private ImageView add,imghuihua,imgpeople,imggroup,img_actionbar;
     private ContactFragment contactFragment;
     private LCIMConversationListFragment lcimConversationListFragment;
     private GroupListFragment groupListFragment;
@@ -36,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         getSupportActionBar().hide();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
@@ -57,18 +64,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         imggroup= (ImageView) findViewById(R.id.img_group);
         tv_people= (TextView) findViewById(R.id.tv_people);
         imgpeople= (ImageView) findViewById(R.id.img_people);
+        img_actionbar= (ImageView) findViewById(R.id.img_actionbar);
         group= (LinearLayout) findViewById(R.id.grou);
         add= (ImageView) findViewById(R.id.add_group);
         group.setOnClickListener(this);
         talk.setOnClickListener(this);
         person.setOnClickListener(this);
         add.setOnClickListener(this);
+        add.setVisibility(View.GONE);
+        String url=null;
+        List<LCChatKitUser> list= CustomUserProvider.getInstance().getAllUsers();
+        for(int i=0;i<list.size();i++){
+            if(list.get(i).getUserName().equals(LCIMData.name)){
+                url=list.get(i).getAvatarUrl();
+                break;
+            }
+        }
+        Picasso.
+                with(MainActivity.this).
+                load(url).
+                resize(50,50).
+                into(img_actionbar);
+
+
+
+
     }
     @Override
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.person:
-                getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment,contactFragment).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment,new Contact_FG_Fragment()).commit();
                 title.setText("联系人");
                 add.setVisibility(View.GONE);
                 change(2);

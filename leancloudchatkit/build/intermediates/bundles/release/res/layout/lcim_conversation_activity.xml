@@ -3,9 +3,11 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical">
+    <include layout="@layout/actionbar"/>
 
     <fragment
         android:id="@+id/fragment_chat"
+        android:layout_weight="1"
         android:name="cn.leancloud.chatkit.activity.LCIMConversationFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

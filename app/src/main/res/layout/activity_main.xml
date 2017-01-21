@@ -8,6 +8,7 @@
         android:layout_weight="0"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/avoscloud_blue"
         android:id="@+id/main_toolbar">
         <LinearLayout
             android:layout_width="match_parent"
@@ -15,9 +16,12 @@
             android:orientation="horizontal"
             >
             <ImageView
+                android:layout_margin="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/img_actionbar"
                 android:src="@mipmap/ic_launcher"/>
+
             <TextView
                 android:layout_weight="1"
                 android:layout_width="match_parent"
@@ -29,31 +33,15 @@
                 android:layout_gravity="center_vertical"
 
                 />
-            <TextView
+
+
+            <ImageView
+                android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/back"
-                android:text="退出"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:layout_weight="0"
-                android:textSize="25dp"
-                android:textColor="@color/avoscloud_feedback_white"
-                android:layout_margin="8dp"
-                android:visibility="visible"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/group"
-                android:text="群组"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:layout_weight="0"
-                android:textSize="25dp"
-                android:textColor="@color/avoscloud_feedback_white"
-                android:layout_margin="8dp"
-                android:visibility="gone"
+                android:id="@+id/add_group"
+                android:src="@drawable/add"
+
                 />
 
         </LinearLayout>
@@ -66,7 +54,6 @@
         android:layout_height="1dp"
         android:background="@android:color/darker_gray"
         />
-
     <LinearLayout
         android:layout_weight="1"
         android:orientation="vertical"
@@ -75,6 +62,12 @@
         android:id="@+id/main_fragment"
 
         />
+
+    <TextView
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:background="@android:color/darker_gray"
+    />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -91,11 +84,14 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher"/>
+                android:id="@+id/img_tuihua"
+                android:src="@drawable/huihua_green"/>
             <TextView
                 android:gravity="center"
+                android:id="@+id/tv_huihua"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textStyle="bold"
                 android:text="会话"/>
 
         </LinearLayout>
@@ -110,14 +106,41 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher"/>
+                android:id="@+id/img_people"
+                android:src="@drawable/people_black"/>
             <TextView
                 android:gravity="center"
+                android:id="@+id/tv_people"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textStyle="bold"
                 android:text="联系人"/>
 
         </LinearLayout>
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/grou"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:id="@+id/img_group"
+                android:layout_height="wrap_content"
+                android:src="@drawable/group_black"/>
+            <TextView
+                android:gravity="center"
+                android:id="@+id/tv_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="群组"/>
+
+        </LinearLayout>
+
     </LinearLayout>
 
 </LinearLayout>

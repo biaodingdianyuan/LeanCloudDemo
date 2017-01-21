@@ -69,7 +69,7 @@ public class GroupListFragment extends Fragment implements AdapterView.OnItemCli
         lv_group = (ListView) view.findViewById(R.id.group_lv);
 
         //toolbar = (Toolbar) view.findViewById(R.id.group_toolbar);
-        //
+
         list = new ArrayList<groupDao>();
 
         adapter = new groupAdapter(list);
@@ -81,17 +81,10 @@ public class GroupListFragment extends Fragment implements AdapterView.OnItemCli
 
 
     }
-
-
-
-
-
-
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
         Intent intent = new Intent(getActivity(), LCIMConversationActivity.class);
-        Log.d("---id---", list.get(i).getId());
         intent.putExtra(LCIMConstants.CONVERSATION_ID,  list.get(i).getId());
         startActivity(intent);
 
